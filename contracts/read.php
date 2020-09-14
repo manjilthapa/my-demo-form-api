@@ -50,7 +50,8 @@ if($num>0){
             "start_date" => $start_date,
             "end_date" => $end_date,
             "comment" => $comment,
-            "file_path" => $file_path
+            "file_path" => $file_path,
+            "file_name" => $file_name
         );
  
         array_push($contracts_arr["contracts"], $contract);
