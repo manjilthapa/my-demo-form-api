@@ -51,6 +51,8 @@ if(isset($_FILES['file'])
     // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
     $file_Path = $_FILES['file']['tmp_name'];
     $key = basename($_FILES['file']['name']);
+    echo $key;
+    echo $file_Path;
     try {
         // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
         //$upload = $s3->upload($bucket, $_FILES['userfile']['name'], $_FILES['userfile']['tmp_name'], 'public-read');
