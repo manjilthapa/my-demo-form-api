@@ -21,21 +21,20 @@ $contract = new Contract($db);
 
 //$player->name = isset($_POST['name']) ? $_POST['name']: die();
 //$player->group_id = isset($_POST['group_id']) ? $_POST['group_id']: die();
-$json = file_get_contents('php://input');
-$item = json_decode($json, true);
-$tmp = isset($_POST['address']) ? $_POST['address']: "";
-echo $tmp;
-$contract->address = isset($item['address']) ? $item['address']: "";
-$contract->institution = isset($item['institution']) ? $item['institution']: "";
-$contract->contact_person = isset($item['contact_person']) ? $item['contact_person']: "";
-$contract->supplier = isset($item['supplier']) ? $item['supplier']: "";
-$contract->installation = isset($item['installation']) ? $item['installation']: "";
-$contract->authority_require = isset($item['authority_require']) ? $item['authority_require']: "";
-$contract->annual_contract_amount = isset($item['annual_contract_amount']) ? $item['annual_contract_amount']: "";
-$contract->who_pay = isset($item['who_pay']) ? $item['who_pay']: "";
-$contract->start_date = isset($item['start_date']) ? $item['start_date']: "";
-$contract->end_date = isset($item['end_date']) ? $item['end_date']: "";
-$contract->comment = isset($item['comment']) ? $item['comment']: "";
+//$json = file_get_contents('php://input');
+//$item = json_decode($json, true);
+
+$contract->address = isset($_POST['address']) ? $_POST['address']: "";
+$contract->institution = isset($_POST['institution']) ? $_POST['institution']: "";
+$contract->contact_person = isset($_POST['contact_person']) ? $_POST['contact_person']: "";
+$contract->supplier = isset($_POST['supplier']) ? $_POST['supplier']: "";
+$contract->installation = isset($_POST['installation']) ? $_POST['installation']: "";
+$contract->authority_require = isset($_POST['authority_require']) ? $_POST['authority_require']: "";
+$contract->annual_contract_amount = isset($_POST['annual_contract_amount']) ? $_POST['annual_contract_amount']: "";
+$contract->who_pay = isset($_POST['who_pay']) ? $_POST['who_pay']: "";
+$contract->start_date = isset($_POST['start_date']) ? $_POST['start_date']: "";
+$contract->end_date = isset($_POST['end_date']) ? $_POST['end_date']: "";
+$contract->comment = isset($_POST['comment']) ? $_POST['comment']: "";
 $contract->file_path =  "";
 
 //Save file to aws s3
