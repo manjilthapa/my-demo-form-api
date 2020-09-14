@@ -46,7 +46,7 @@ if(isset($_FILES['file'])
     // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
     $s3 = new Aws\S3\S3Client([
         'version'  => '2006-03-01',
-        'region'   => 'eu-north-1',
+        'region'   => 'eu-central-1',
     ]);
     $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
     // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
