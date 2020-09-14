@@ -68,7 +68,7 @@ else{
  
     // tell the user no products found
     echo json_encode(
-        array("OK" => "ERROR")
+        array("OK" => "YES", "contracts" => [])
     );
 }
 
