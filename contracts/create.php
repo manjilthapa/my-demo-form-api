@@ -32,42 +32,30 @@ $contract->start_date = isset($item['start_date']) ? $item['start_date']: "";
 $contract->end_date = isset($item['end_date']) ? $item['end_date']: "";
 $contract->comment = isset($item['comment']) ? $item['comment']: "";
 $contract->file = isset($item['file']) ? $item['file']: "";
-$contract->action = isset($item['action']) ? $item['action']: die();
 
 
-if($contract->action == "create_player"){
-    if($contract->create()){
- 
-       $contract_arr=array(
-            "OK" => "YES",
-            "contract" => array(
-                "id" => $contract->id,
-                "file_path" => $contract->file_path
-            ),
-        );
- 
-        // tell the user
-        echo json_encode($contract_arr);
-    }
- 
-    // if unable to create the product, tell the user
-    else{
- 
-        // set response code - 503 service unavailable
-      //  http_response_code(503);
- 
-        // tell the user
-        echo json_encode(array("OK" => "ERROR"));
-    }
-}
- 
-// tell the user data is incomplete
-else{
- 
-    // set response code - 400 bad request
-	//http_response_code(400);
- 
+if($contract->create()){
+
+    $contract_arr=array(
+        "OK" => "YES",
+        "contract" => array(
+            "id" => $contract->id,
+            "file_path" => $contract->file_path
+        ),
+    );
+
     // tell the user
-    echo json_encode(array("OK" => "Name is empty"));
+    echo json_encode($contract_arr);
 }
+
+// if unable to create the contract, tell the user
+else{
+
+    // set response code - 503 service unavailable
+    //  http_response_code(503);
+
+    // tell the user
+    echo json_encode(array("OK" => "ERROR"));
+}
+
 ?>
