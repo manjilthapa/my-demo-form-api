@@ -24,7 +24,7 @@ $num = $stmt->rowCount();
 if($num>0){
  
     // products array
-    $response=array();
+    $contracts_arr=array();
     $contracts_arr["OK"] = "YES";
     $contracts_arr["contracts"]=array();
  
@@ -60,7 +60,7 @@ if($num>0){
   //  http_response_code(200);
  
     // show products data in json format
-    echo json_encode($response);
+    echo json_encode($contracts_arr);
 }
 else{
  
