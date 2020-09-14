@@ -74,7 +74,8 @@ if($contract->create()){
         "OK" => "YES",
         "contract" => array(
             "id" => $contract->id,
-            "file_path" => $contract->file_path
+            "file_path" => $contract->file_path,
+            "file_name" => $contract->file_name
         ),
     );
 
