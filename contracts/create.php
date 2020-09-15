@@ -35,6 +35,7 @@ $contract->who_pay = isset($_POST['who_pay']) ? $_POST['who_pay']: "";
 $contract->start_date = isset($_POST['start_date']) ? $_POST['start_date']: "";
 $contract->end_date = isset($_POST['end_date']) ? $_POST['end_date']: "";
 $contract->comment = isset($_POST['comment']) ? $_POST['comment']: "";
+$contract->created = date('Y-m-d H:i:s');
 
 //Save file to aws s3
 if(isset($_FILES['file']) 

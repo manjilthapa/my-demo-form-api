@@ -20,6 +20,9 @@ class Contract{
     public $comment;
     public $file_path;
     public $file_name;
+    public $status;
+    public $created;
+
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -32,7 +35,10 @@ class Contract{
     $query = "SELECT
                *
             FROM
-                " . $this->table_name ;
+                " . $this->table_name . "
+            
+            WHERE status = 'active'
+            " ;
  
     // prepare query statement
     $stmt = $this->conn->prepare($query);
@@ -53,7 +59,7 @@ class Contract{
                     supplier=:supplier,installation=:installation,
                     authority_require=:authority_require,annual_contract_amount=:annual_contract_amount,
                     who_pay=:who_pay,start_date=:start_date, end_date=:end_date, comment=:comment,
-                    file_path=:file_path, file_name=:file_name";
+                    file_path=:file_path, file_name=:file_name, created=:created";
     
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -72,6 +78,7 @@ class Contract{
         $this->comment=htmlspecialchars(strip_tags($this->comment));
         $this->file_path=htmlspecialchars(strip_tags($this->file_path));
         $this->file_name=htmlspecialchars(strip_tags($this->file_name));
+        $this->created=htmlspecialchars(strip_tags($this->created));
     
         // bind values
         $stmt->bindParam(":address", $this->address);
@@ -87,11 +94,40 @@ class Contract{
         $stmt->bindParam(":comment", $this->comment);
         $stmt->bindParam(":file_path",$this->file_path);
         $stmt->bindParam(":file_name",$this->file_name);
+        $stmt->bindParam(":created", $this->created);
 
     
         // execute query
         if($stmt->execute()){
             $this->id = $this->conn->lastInsertId();
+            return true;
+        }
+    
+        return false;
+        
+    }
+
+    // delete the contract -> update status to deleted
+    function delete(){
+ 
+        $query = "UPDATE
+                " . $this->table_name . "
+            SET
+                status = 'deleted'
+            WHERE
+                id = :id
+            ";
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+    
+        // sanitize
+        $this->id=htmlspecialchars(strip_tags($this->id));
+    
+        // bind new values
+        $stmt->bindParam(':id', $this->id);
+    
+        // execute query
+        if($stmt->execute()){
             return true;
         }
     
