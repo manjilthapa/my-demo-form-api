@@ -25,12 +25,10 @@ $item = json_decode(file_get_contents("php://input"));
 
 
 $contract->id = $item->id;
-echo $contract->id; 
 $contract->address = $item->address;
 $contract->institution =  $item->institution;
 $contract->contact_person = $item->contact_person;
 $contract->supplier = $item->supplier;
-echo $contract->supplier; 
 $contract->installation = $item->installation;
 $contract->authority_require =  $item->authority_require;
 $contract->annual_contract_amount = $item->annual_contract_amount;
