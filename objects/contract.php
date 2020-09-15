@@ -136,9 +136,6 @@ class Contract{
         $this->start_date=htmlspecialchars(strip_tags($this->start_date));
         $this->end_date=htmlspecialchars(strip_tags($this->end_date));
         $this->comment=htmlspecialchars(strip_tags($this->comment));
-        $this->file_path=htmlspecialchars(strip_tags($this->file_path));
-        $this->file_name=htmlspecialchars(strip_tags($this->file_name));
-        $this->created=htmlspecialchars(strip_tags($this->created));
     
         // bind values
         $stmt->bindParam(':id', $this->id);
@@ -153,9 +150,6 @@ class Contract{
         $stmt->bindParam(":start_date", $this->start_date);
         $stmt->bindParam(":end_date", $this->end_date);
         $stmt->bindParam(":comment", $this->comment);
-        $stmt->bindParam(":file_path",$this->file_path);
-        $stmt->bindParam(":file_name",$this->file_name);
-        $stmt->bindParam(":created", $this->created);
         
      
         // execute the query
