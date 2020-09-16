@@ -1,6 +1,6 @@
 <?php
 // Load Composer's autoloader
-require __DIR__ . "/vendor/autoload.php";
+require __DIR__ . "../vendor/autoload.php";
 
 $email = new \SendGrid\Mail\Mail();
 $email->setFrom("manjil@lifebonder.com", "Manjil Thapa");
