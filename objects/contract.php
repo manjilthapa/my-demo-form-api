@@ -32,22 +32,18 @@ class Contract{
     // read contract
     function read(){
          // select all query
-    $query = "SELECT
+        $query = "SELECT
                *
             FROM
                 " . $this->table_name . "
             
             WHERE status = 'active'
             " ;
- 
-    // prepare query statement
-    $stmt = $this->conn->prepare($query);
- 
-    // execute query
-    $stmt->execute();
- 
-    return $stmt;
-        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+        // execute query
+        $stmt->execute();
+        return $stmt;
     }
 
     function create(){
@@ -188,5 +184,22 @@ class Contract{
         return false;
         
     }
+
+    //get data that's end date is tomorrow
+    function getEndDateIsFromTomorrow(){
+        // select all query
+       $query = "SELECT
+              *
+           FROM
+               " . $this->table_name . "
+           
+           WHERE end_date = CURDATE() + INTERVAL 1 DAY AND status = 'active' 
+           " ;
+       // prepare query statement
+       $stmt = $this->conn->prepare($query);
+       // execute query
+       $stmt->execute();
+       return $stmt;
+   }
 }
 ?>
