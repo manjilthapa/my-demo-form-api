@@ -29,7 +29,7 @@ if($num>0){
         $email->setSubject("Sending email for reminder of contract expire");
         $email->addTo("manjilthapa@gmail.com", "Example User");
         $email->addContent(
-            "text/html", "<strong>$institution contract with $supplier is expiring, on $end_date</strong>"
+            "text/html", "<strong>$institution </strong> contract with <strong>$supplier</strong> is expiring, on <strong>$end_date</strong>"
         );
         $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
         try {

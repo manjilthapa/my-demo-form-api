@@ -112,7 +112,7 @@ class Contract{
                 address=:address,institution=:institution,contact_person=:contact_person,
                 supplier=:supplier,installation=:installation,
                 authority_require=:authority_require,annual_contract_amount=:annual_contract_amount,
-                who_pay=:who_pay,start_date=:start_date, end_date=:end_date, comment=:comment
+                who_pay=:who_pay,start_date=:start_date, end_date=:end_date, comment=:comment, file_path=:file_path, file_name=:file_name
                 WHERE
                     id = :id";
      
@@ -132,6 +132,8 @@ class Contract{
         $this->start_date=htmlspecialchars(strip_tags($this->start_date));
         $this->end_date=htmlspecialchars(strip_tags($this->end_date));
         $this->comment=htmlspecialchars(strip_tags($this->comment));
+        $this->file_path=htmlspecialchars(strip_tags($this->file_path));
+        $this->file_name=htmlspecialchars(strip_tags($this->file_name));
     
         // bind values
         $stmt->bindParam(':id', $this->id);
@@ -146,6 +148,8 @@ class Contract{
         $stmt->bindParam(":start_date", $this->start_date);
         $stmt->bindParam(":end_date", $this->end_date);
         $stmt->bindParam(":comment", $this->comment);
+        $stmt->bindParam(":file_path",$this->file_path);
+        $stmt->bindParam(":file_name",$this->file_name);
         
      
         // execute the query
