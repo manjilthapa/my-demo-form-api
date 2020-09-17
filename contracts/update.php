@@ -52,12 +52,12 @@ $contract->file_path = isset($_POST['file_path']) ? $_POST['file_path']: "";
 $contract->file_name = isset($_POST['file_name']) ? $_POST['file_name']: "";
 
 echo $contract->address;
-echo isset($_FILES['file']);
+
 //Save file to aws s3
 if(isset($_FILES['file']) 
     && $_FILES['file']['error'] == UPLOAD_ERR_OK 
     && is_uploaded_file($_FILES['file']['tmp_name'])) {
-    
+        echo "file is here";
     // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
     $s3 = new Aws\S3\S3Client([
         'version'  => '2006-03-01',
