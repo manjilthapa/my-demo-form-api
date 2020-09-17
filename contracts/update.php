@@ -51,6 +51,7 @@ $contract->comment = isset($_POST['comment']) ? $_POST['comment']: "";
 $contract->file_path = isset($_POST['file_path']) ? $_POST['file_path']: "";
 $contract->file_name = isset($_POST['file_name']) ? $_POST['file_name']: "";
 
+echo $contract->address;
 //Save file to aws s3
 if(isset($_FILES['file']) 
     && $_FILES['file']['error'] == UPLOAD_ERR_OK 
