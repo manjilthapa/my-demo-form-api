@@ -29,7 +29,7 @@ if($num>0){
         $email->setSubject("Sending email for reminder of contract expire");
         $tos = [
             "manjilthapa@gmail.com" => "Manjil thapa",
-            "dhr@gentofte.dk " => "Dipendra Shrestha"
+            "dhr@gentofte.dk" => "Dipendra Shrestha"
         ];
         $email->addTos($tos);
         //$email->addTo("manjilthapa@gmail.com", "Example User");
