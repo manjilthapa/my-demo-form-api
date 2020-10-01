@@ -27,7 +27,12 @@ if($num>0){
         $email = new \SendGrid\Mail\Mail();
         $email->setFrom("manjil@lifebonder.com", "Manjil Thapa");
         $email->setSubject("Sending email for reminder of contract expire");
-        $email->addTo("manjilthapa@gmail.com", "Example User");
+        $tos = [
+            "manjilthapa@gmail.com" => "Manjil thapa",
+            "dhr@gentofte.dk " => "Dipendra Shrestha"
+        ];
+        $email->addTos($tos);
+        //$email->addTo("manjilthapa@gmail.com", "Example User");
         $email->addContent(
             "text/html", "<strong>$institution </strong> contract with <strong>$supplier</strong> is expiring, on <strong>$end_date</strong>"
         );
